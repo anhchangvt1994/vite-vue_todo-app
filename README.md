@@ -4,7 +4,7 @@ This project is a collection of two mini-projects include `SignIn / SignUp` and 
 
 For more information about this project.
 
-- You can read detail about advanced structure of Vite + React + TS project in this [repository](https://github.com/anhchangvt1994/vite-project--template-vue-ts).
+- You can read detail about advanced structure of Vite + Vue + TS project in this [repository](https://github.com/anhchangvt1994/vite-project--template-vue-ts).
 - You can read detail about router, suspense and some common utilities in this [repository](https://github.com/anhchangvt1994/vite-project--template-vue-ts__vue-router).
 - You can experience the architecture above, along with SEO capabilities and lighthouse score optimization, as well as many other utilities, all of which promise to bring you a wonderful experience. And of course, you can use it for your own real-world projects [repository](https://github.com/anhchangvt1994/vite-project-template-vue__seo-web-scraping).
 
@@ -20,13 +20,13 @@ For more information about this project.
 **Clone source:**
 
 ```bash
-git clone https://github.com/anhchangvt1994/vite-react_todo-app.git
+git clone https://github.com/anhchangvt1994/vite-vue_todo-app.git
 ```
 
 **Install:**
 
 ```bash
-cd vite-react_todo-app
+cd vite-vue_todo-app
 ```
 
 If use npm
