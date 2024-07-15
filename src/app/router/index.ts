@@ -56,11 +56,16 @@ const routes: Readonly<RouteRecordRaw[]> = [
 						const user = certInfo?.user.value
 
 						if (user && user.email) {
-							return (
-								certInfo.successPath ||
-								(certInfo.navigateInfo?.from?.fullPath ??
-									import.meta.env.ROUTER_HOME_PATH)
-							)
+							switch (true) {
+								case !!certInfo.successPath:
+									return certInfo.successPath
+								case !!certInfo.navigateInfo.from &&
+									certInfo.navigateInfo.from.name !==
+										import.meta.env.ROUTER_SIGN_UP_NAME:
+									return certInfo.navigateInfo.from.fullPath
+								default:
+									return import.meta.env.ROUTER_HOME_PATH
+							}
 						}
 
 						return true

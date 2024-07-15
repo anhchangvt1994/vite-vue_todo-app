@@ -1,10 +1,12 @@
 <script setup lang="ts">
 	import { useMutationSignUp } from 'app/apis/user'
+	import { useStorageStore } from 'app/store/pinia/storageInfo'
+	import { useUserStore } from 'app/store/pinia/userInfo'
+	import { useToastList } from 'components/ToastList/composable/useToastList'
 	import ToastList from 'components/ToastList/index.vue'
 	import { useForm } from 'vee-validate'
 	import { EMAIL_VALIDATION_REGEX, NAME_VALIDATION_REGEX } from './constants'
 	import { ISignUpRequestParams, ISignUpRequestParamsForForm } from './types'
-	import { useToastList } from 'components/ToastList/composable/useToastList'
 
 	const route = useRoute()
 
@@ -106,6 +108,10 @@
 
 	watch(isSuccess, (success) => {
 		if (success) {
+			const { userInfo } = useUserStore()
+			const { setUserID } = useStorageStore()
+			setUserID(userInfo.id)
+
 			route.meta.reProtect?.()
 		}
 	})
