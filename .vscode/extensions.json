@@ -1,0 +1,7 @@
+{
+	"recommendations": [
+		"Vue.vscode-typescript-vue-plugin",
+		"ionutvmi.path-autocomplete",
+		"rohit-gohri.format-code-action"
+	]
+}
