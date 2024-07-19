@@ -31,24 +31,23 @@ const BeforeEach = (function beforeEach() {
 
 	const _init = (router: Router) => {
 		router.beforeEach(async (to, from) => {
+			certificateInfo = {
+				...certificateCustomizationInfo,
+				navigateInfo: {
+					to,
+					from: !certificateInfo
+						? from
+						: certificateInfo.navigateInfo.to.fullPath === to.fullPath
+						? certificateInfo.navigateInfo.from
+						: certificateInfo.navigateInfo.to,
+				},
+				successPath,
+			}
+
 			if (typeof to.meta.protect === 'function') {
 				const protect = to.meta.protect
 				const navigate: INavigate = {
 					status: 200,
-				}
-
-				certificateInfo = {
-					...certificateCustomizationInfo,
-					navigateInfo: {
-						to,
-						from:
-							certificateInfo &&
-							certificateInfo.navigateInfo.from &&
-							certificateInfo.navigateInfo.from.fullPath === from.fullPath
-								? certificateInfo.navigateInfo.to
-								: from,
-					},
-					successPath,
 				}
 
 				const checkProtection = (isReProtect = false) => {
